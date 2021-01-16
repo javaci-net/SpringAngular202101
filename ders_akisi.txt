@@ -1,0 +1,40 @@
+XML vs JSON
+https://www.w3schools.com/xml/default.asp
+https://www.w3schools.com/js/js_json_intro.AJPERES
+
+https://www.sabihagokcen.aero/flashes/tr/data/locationTurkey.xml
+https://www.flypgs.com/sitemap/flypgs-com_web_sitemap.xml
+https://tucbs-public-api.csb.gov.tr/tucbs/tucbs_kayit/tucbs_katman.xml
+https://www.turkiye.gov.tr/sitemap.xml
+https://www.tcmb.gov.tr/wps/wcm/connect/c0fc4d08-60da-4494-a65f-c038ee5c51c9/tcmb_bilgi_amacli_kur_ornek.xml?MOD=AJPERES
+
+HTML
+https://www.w3schools.com/tags/default.asp
+https://html5up.net/stellar
+
+CSS
+https://www.w3schools.com/css/default.asp
+
+BootStrap
+https://www.w3schools.com/bootstrap4/default.asp
+https://www.codeply.com/go/bp/119981
+
+JavaScript
+https://www.w3schools.com/js/default.asp
+https://www.w3schools.com/js/js_json_intro.asp
+https://www.desmos.com/scientific?lang=tr
+
+JQuery
+https://www.w3schools.com/jquery/default.asp
+
+Ajax 
+https://www.w3schools.com/js/js_ajax_intro.asp
+https://www.w3schools.com/jquery/default.asp
+
+
+Browser nedir ne bilir
+Browser istasitiği
+
+Angular vs React
+React Native vs Flutter
+Mobile Native (java-kotlin / Android, Swing - ObjectiveC / IOS) 

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        /* Full-width input fields */
+        input[type=text],
+        input[type=password] {
+            width: 30%;
+            padding: 15px;
+            margin: 5px 0 22px 0;
+            display: inline-block;
+            border: none;
+            background: #f1f1f1;
+        }
+
+        /* Add a background color when the inputs get focus */
+        input[type=text]:focus,
+        input[type=password]:focus {
+            background-color: #ddd;
+            outline: none;
+        }
+
+        /* Set a style for all buttons */
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 14px 20px;
+            margin: 8px 0;
+            border: none;
+            cursor: pointer;
+            width: 30%;
+            opacity: 0.9;
+        }
+
+        button:hover {
+            opacity: 1;
+        }
+
+
+        /* Style the horizontal ruler */
+        hr {
+            border: 1px solid #f1f1f1;
+            margin-bottom: 25px;
+        }
+
+        .error {
+            color: red;
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <form id="login_form" action="http://javateknolojileri.online/formSubmitHandler.php"
+        onSubmit="return validateForm();" method="post">
+        <h2>HTML Login</h2>
+
+        <label for="email"><b>Email</b></label><br>
+        <input type="text" placeholder="Enter Username" name="email" required
+            pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" title="Invalid email">
+        <br>
+
+        <label for="psw"><b>Password</b></label><br>
+        <input type="password" placeholder="Enter Password" name="password" required>
+        <span class="error" id="password_error"></span>
+        <br><br>
+
+        <button type="submit">Login</button>
+        <br>
+
+    </form>
+
+    <script>
+        function validateForm() {
+            var password = document.forms["login_form"]["password"].value;
+            if (password.length < 8) {
+                var email_error = document.getElementById("password_error");
+                email_error.innerHTML = "* Password must be at least 8 characters long";
+                return false;
+            }
+        }
+    </script>
+</body>
+
+</html>
