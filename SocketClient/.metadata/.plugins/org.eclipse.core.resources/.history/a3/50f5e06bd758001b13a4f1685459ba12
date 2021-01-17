@@ -1,0 +1,23 @@
+package net.javaci;
+import java.net.DatagramPacket;
+import java.net.DatagramSocket;
+import java.net.InetAddress;
+
+public class SocketClient {
+
+	public static void main(String args[]) throws Exception {
+		DatagramSocket clientSocket = new DatagramSocket();
+		InetAddress ipAddress = InetAddress.getByName("localhost");
+		byte[] sendData = "selam".getBytes();
+		byte[] receiveData = new byte[1024];
+		DatagramPacket sendPacket = new DatagramPacket(sendData, sendData.length, ipAddress, 8000);
+		clientSocket.send(sendPacket);
+
+		DatagramPacket receivePacket = new DatagramPacket(receiveData, receiveData.length);
+		clientSocket.receive(receivePacket);
+		String modifiedSentence = new String(receivePacket.getData());
+		System.out.println("FROM SERVER:" + modifiedSentence);
+		clientSocket.close();
+	}
+
+}

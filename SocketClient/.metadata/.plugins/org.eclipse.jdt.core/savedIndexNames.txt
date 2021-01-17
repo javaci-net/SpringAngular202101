@@ -1,0 +1,3 @@
+INDEX VERSION 1.131+/Users/koraygecici/sources/spring-agular-2021/SocketClient/.metadata/.plugins/org.eclipse.jdt.core
+1517987751.index
+106129517.index

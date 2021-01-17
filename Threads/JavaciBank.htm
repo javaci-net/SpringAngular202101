@@ -1,0 +1,714 @@
+<!DOCTYPE html>
+<!-- saved from url=(0023)https://javacibank.com/ -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><script type="text/javascript">
+    (function() {
+      var container = document.querySelector('#_tcx-3xjn10nrhpz');
+      if (!container) {
+        return;
+      }
+
+      function addToContainer(url, text) {
+        const wrapper = document.createElement('div');
+        wrapper.setAttribute('data-tcx-url', url);
+        wrapper.innerText = text;
+        container.appendChild(wrapper);
+      }
+
+      const fetch = window.fetch
+      window.fetch = function() {
+        return Promise.resolve(fetch.apply(window, arguments))
+            .then(async response => {
+              if (response.ok) {
+                try {
+                  const clone = response.clone();
+                  const json = await clone.json();
+                  addToContainer(clone.url, JSON.stringify(json));
+                } catch (err) {}
+              }
+              return response;
+            });
+      };
+
+      var XHR = XMLHttpRequest.prototype;
+      var send = XHR.send;
+      var open = XHR.open;
+      XHR.open = function(method, url) {
+        this.url = url;
+        return open.apply(this, arguments);
+      };
+      XHR.send = function() {
+        this.addEventListener('load', function() {
+          try {
+            const response = this.response;
+            if (response && response.length) {
+              const firstChar = response[0];
+              if (firstChar === '[' || firstChar === '{') {
+                addToContainer(this.url, response);
+              }
+            }
+          } catch (err) {
+            // No-op.
+          }
+        });
+        return send.apply(this, arguments);
+      };
+    })();
+  </script>
+		<title>JavaciBank</title>
+		
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+		<link rel="stylesheet" href="./JavaciBank_files/main.css">
+		<link rel="stylesheet" href="./JavaciBank_files/noscript.css">
+
+		<style>
+		    iframe{
+		        width: 100%;
+		        height: 800px;
+		    }
+		</style>
+		
+		
+	<style></style><script async="" src="./JavaciBank_files/adblocker-chromeglobalinjectjs.js"></script><script src="chrome-extension://mooikfkahbdckldjjndioackbalphokd/assets/prompt.js"></script></head>
+	<body class="" onload="findNewGame()" data-new-gr-c-s-check-loaded="14.991.0" data-gr-ext-installed="">
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Header -->
+					<header id="header" class="alt">
+						<span class="logo title text-center">
+							<div class="head-icons">
+								<a href="https://spring.io/projects/spring-boot" target="_blank" rel="noopener"><img src="./JavaciBank_files/spring-boot.svg" class="project-icon img-responsive"></a>
+								<i class="fa fa-4x">+</i>
+								<a href="https://angular.io/" target="_blank" rel="noopener"><img src="./JavaciBank_files/angular.svg" class="project-icon img-responsive"></a><br class="visible-xs">
+								
+							</div>
+							
+						</span>
+						<h1>Spring + Angular Eğitimi </h1>
+						<p>Bir <a href="http://javaci.net/" target="_blank">Javaci.net</a> eğitimidir. Zaten tek eğitimi de budur :)<br>
+							<b>9 Ocak Cumartesi  başlıyoruz</b> <br>
+							Birlikte yazacağımız uygulamanın linkeleri:<br>
+							
+						</p><ul id="links" class="actions" style="justify-content: center;">
+							<li><a href="http://backoffice.javacibank.com/" target="_blank" class="button primary ">Backoffice Ekranları (Spring + Thymeleaf)</a></li>
+							<li><a href="http://api.javacibank.com/" target="_blank" class="button primary ">Api (Spring Rest)</a></li>
+							<li><a href="http://sube.javacibank.com/" target="_blank" class="button primary">İnternet Şubesi (Angular)</a></li>
+						</ul>
+						<ul class="actions small" style="justify-content: center;">
+							<li><a href="https://github.com/javaci-net/javaci-bank/tree/master/javaci-bank-backoffice" target="_blank" class="button small">Java Backoffice on Github</a></li>
+							<li><a href="https://github.com/javaci-net/javaci-bank/tree/master/javaci-bank-api" target="_blank" class="button small">Java Api on Github</a></li>
+							<li><a href="https://github.com/javaci-net/javaci-bank-sube" target="_blank" class="button small">Angular project on Github</a></li>
+						</ul>
+					<p></p>
+					</header>
+
+				<!-- Nav -->
+					<nav id="nav" class="nav">
+						<ul>
+							<li><a href="https://javacibank.com/#intro" class="active">Merhaba</a></li>
+							<li><a href="https://javacibank.com/#content">İçerik</a></li>
+							<li><a href="https://javacibank.com/#team">Ekip</a></li>
+							<li><a href="https://javacibank.com/#price">Fiyat / İndirim</a></li>
+							<li><a href="https://javacibank.com/#application">Başvuru</a></li>
+							<li><a href="https://javacibank.com/#game">Oyun</a></li>
+						</ul>
+					</nav>
+
+				<!-- Main -->
+					<div id="main">
+
+						<!-- Introduction -->
+							<section id="intro" class="main inactive">
+								<div class="spotlight">
+									<div class="content">
+										<header class="major">
+											<h2>Java Teknolojileri Eğitimi (Spring + Angular)</h2>
+										</header>
+										<p class="nav">
+											
+											2019 Eylül'de verdiğimiz eğitimin yenilenmiş, güncellenmiş, geliştirilmiş ve içine uygulama geliştirme eklenmiş yeni versiyonunu hazırladık. 
+											Bu eğitim aslında benim (Volkan) hayalim. Bir süredir basit bir bankacılık uygulaması yazıp, bu uygulama üzerinden java ile kurumsal yazılımlar nasıl geliştiriliyor anlatmak istiyordum. Koray Özkan ve Hüseyin'in nin yardımlarıyla oldu. 
+											<b>9 Ocak 2021 Cumartesi eğitime başlıyoruz :)</b>
+											
+											
+										</p>
+										<p class="nav"> <b>Peki biz kimiz? </b> Bu sorunun detaylı cevabını <a href="https://javacibank.com/#team"><i>Ekip</i></a> kısmında bulabilirsiniz. Özet olarak da her biri en az 15 yıllık uygulama geliştirme tecrübesine sahip 4 eğitmen ve öğrenci işleriyle ilgilenen Doğancan dan oluşan bir ekibiz.
+										</p>
+										<p class="nav"> <b>Özet olarak bilinmesi gerekenler: </b> <br>
+										Eğitim online olarak, zoom üzerinden verilecek. <br>
+										9 Ocak 2021 Cumartesi başlıyoruz. <br>
+										Tüm eğitim kaydedilip öğrencilerin erişimine sunulacak. <br>
+										Her Cumartesi ve Pazar dörder saatlik dersler halinde işlenecek.<br>
+										Amerikadaki öğrencilerle uyumlu olmak için dersler Türkiye saatiyle 18:00 - New York satiyle 10:00 de başlayacak. <br>
+										17 Hafta / 136 saate sürecek<br>
+										2 Mayıs 2021 Pazar günü bitecek <br>
+										
+										Eğitim sonunda E-Sertifika verilecektir. Örnek sertifika için 
+										<a href="https://javacibank.com/sample_certificate.pdf" rel="noopener" style="text-decoration:underline;color:#0068a5" target="_blank">buraya tıklayabilirsiniz</a>. <br>
+										
+										Bu eğitim için bir uygulama yazdık linklerini <a href="https://javacibank.com/#links">burada bulabilirsiniz </a> <br>
+										
+										</p>
+										<p class="nav"> <b>Eğitimin içeriği nedir? </b> Dünyada herhangi bir ülkede Java yazılımcısı olarak çalıştığınızda bilmeniz gereken onlarca teknolojiyi 136 saatlik bir eğitimde öğreteceğiz ve öğrendiklerimizle JavaciBank'ı birlikte yazacağız.
+											Tüm teknolojileri tüm detaylarıyla anlatmak mümkün ve gerekli değil, hiç bir yazılımcı da her konuyu uzman olacak kadar bilmez. Burada geniş teknoloji yelpazesiyle tanışmanızı ve bazıları hakkında uzmanlaşmanızı hedefliyoruz.
+											
+										</p>
+										<ul class="actions nav">
+											<li><a href="https://javacibank.com/#content" class="button">İçeriğe devam et</a></li>
+										</ul>
+									</div>
+									<span class="image"><img src="./JavaciBank_files/javaci-logo.png" alt=""></span>
+								</div>
+							</section>
+
+						<!-- First Section -->
+							<section id="content" class="main special inactive">
+								<header class="major">
+									<h2>Eğitimde Neler Öğreneceksiniz?</h2>
+								</header>
+								<ul class="features">
+									<li>
+										<span class="icon solid major style1 fa-code"></span>
+										<h3><b>Detaylı anlatılacaklar</b></h3>
+										<p>
+											<a href="https://spring.io/" target="_blank">Spring,</a>
+											<a href="https://spring.io/projects/spring-boot" target="_blank">Spring Boot,</a>
+											<a href="https://spring.io/projects/spring-restdocs" target="_blank">Spring Rest ,</a>
+											<a href="https://spring.io/projects/spring-data" target="_blank">Spring Data,</a>
+											<a href="https://angular.io/" target="_blank">Angular,</a>
+											<a href="https://www.thymeleaf.org/" target="_blank">Thymleaf,</a>
+											<a href="https://spring.io/projects/spring-data-jdbc" target="_blank">JDBC / Spring Jdbc,</a>
+											<a href="https://spring.io/projects/spring-data-jpa" target="_blank">JPA,</a>
+											<a href="https://hibernate.org/" target="_blank">Hibernate,</a>
+											<a href="https://en.wikipedia.org/wiki/Representational_state_transfer" target="_blank">Rest Service,</a>
+											<a href="https://spring.io/projects/spring-security" target="_blank">Spring Security / JWT,</a>
+											<a href="https://junit.org/junit5/" target="_blank">JUnit,</a>
+											<a href="https://www.oracle.com/java/technologies/java-message-service.html" target="_blank">JMS,</a>
+											<a href="http://www.quartz-scheduler.org/" target="_blank">Batch Process / quartsz,</a>
+											<a href="https://www.oracle.com/java/technologies/java-servlet-tec.html" target="_blank">Servlet,</a>
+											<a href="https://swagger.io/" target="_blank">swagger api documantation</a>
+										</p>
+									</li>
+									<li>
+										<span class="icon solid major style3 fa-keyboard"></span>
+										<h3><b>Orta düzey anlatılacaklar</b></h3>
+										<p>
+											<a href="https://git-scm.com/" target="_blank">Git,</a>
+											<a href="https://maven.apache.org/" target="_blank">Maven,</a>
+											<a href="https://en.wikipedia.org/wiki/SQL" target="_blank">SQL,</a>
+											<a href="https://en.wikipedia.org/wiki/Network_socket" target="_blank">Socket,</a>
+											<a href="https://en.wikipedia.org/wiki/Thread_(computing)" target="_blank">Thread,</a>
+											Http ve Rest server yazılması (multi thread),
+											Http isteğinin yaşam döngüsü,
+											Bean validators
+										</p>
+									</li>
+									<li>
+										<span class="icon solid major style5 fa-code-branch"></span>
+										<h3><b>Biraz değinilecek konular</b></h3>
+										<p>
+
+											<a href="http://modelmapper.org/" target="_blank">Model mapper,</a>
+											<a href="https://projectlombok.org/" target="_blank">Project Lombok,</a>
+											<a href="https://www.h2database.com/html/main.html" target="_blank">h2database,</a>
+											<a href="https://www.postgresql.org/" target="_blank">postgresql,</a>
+											<a href="https://en.wikipedia.org/wiki/Ajax_(programming)" target="_blank">Ajax,</a>
+											HTML, CSS, JavaScript,
+											<a href="https://jquery.com/" target="_blank">JQuery,</a>
+											<a href="https://getbootstrap.com/" target="_blank">BootStrap,</a>
+											ML, JSON
+										</p>
+									</li>
+								</ul>
+								<p class="nav" style="text-align: left;"> <b>Bir de lab var: </b> Lab'da ne anlatılacağına birlikte karar vereceğiz. Benim şimdilik önerimlerim şunlar: 
+									<a href="https://www.jhipster.tech/" target="_blank">jhipster,</a>
+									<a href="http://sparkjava.com/" target="_blank">Spark java,</a> 
+									<a href="https://javalin.io/" target="_blank">javalin,</a>	 
+									<a href="https://www.playframework.com/" target="_blank">Play freamwork,</a>	
+									<a href="https://vaadin.com/" target="_blank">Vaadin</a>	 
+									<a href="https://vuejs.org/" target="_blank">VueJs</a>	
+									
+									Bunlardan birini yada sizin araştırılmasını istediğiniz bir şeyi Lab'a konu ederbiliriz		
+									
+									<a href="https://javacibank.com/#lab">Lab hakkında bilgiye buradan</a> ulaşabilirsiniz	
+								</p>
+
+								<ul class="statistics nav">
+									<li class="style1">
+										<span class="icon solid fa-code-branch"></span>
+										<strong>136 Saat</strong> Toplam 136 Saat Eğitim
+									</li>
+									<li class="style2">
+										<span class="icon fa-folder-open"></span>
+										<strong>80 Saat</strong> <a href="https://javacibank.com/#teorik_egitim">Teorik Eğitim</a>
+									</li>
+									<li class="style3">
+										<span class="icon solid fa-signal"></span>
+										<strong>40 Saat</strong><a href="https://javacibank.com/#pratik_ve_etut">Pratik ve Etüt (Kod Yazma)</a>
+									</li>
+									<li class="style4">
+										<span class="icon solid fa-laptop"></span>
+										<strong>8 Saat</strong> <a href="https://javacibank.com/#acik_oturum">Açık Oturum</a>
+									</li>
+									<li class="style5">
+										<span class="icon fa-gem"></span>
+										<strong>8 Saat</strong> <a href="https://javacibank.com/#lab">Lab</a>
+									</li>
+								</ul>
+								
+							
+								<div class="nav" style="text-align: left;">
+									<p id="teorik_egitim"> <b>Teorik Eğitim: </b>  80 saatten oluşan teorik eğitimde her konuyu ayrı ayrı ele alıp anlatıyoruz. 
+									Teorik eğitimin amacı yazılım geliştirirken kullandığımız teknolojileri daha yakından tanımak ve onlarla temel örnekler yaparak, bir çok ayrıntıyı küçük parçalar olarak görmektir.
+									Teorik konularını <a href="https://javacibank.com/#icerik_tablosu" style="color: #d60ed6;">içerik tablosunda bu renkle </a> görebilirsiniz.
+									</p>
+									<p id="pratik_ve_etut"> <b>Pratik ve Etüt (Kod Yazma): </b> Teorik eğitimde kod yazılsada buların entegre bir uygulumaya aktarılması kolay olmuyor. 
+									Biz de javaciBank projesini öğrencinin komple bir uygulamanın nasıl yazıldığını görmesi için hazırladık. Pratik bölümğnde birlikte javaciBank ı yeniden yazacağız. 
+									Etüt bölümünde ise sizin aldığınız hatalara bakıp nerede sorun yaşadığınızı anlamaya çalışacağız. Pratik ve Etüt için toplam saat ayırdık. 
+									Pratik ve Etüt konularını <a href="https://javacibank.com/#icerik_tablosu" style="color: #4315c1;">içerik tablosunda bu renkle </a> görebilirsiniz.
+									</p>	
+									<p id="acik_oturum"> <b>Açık Oturum: </b> 
+									İki hafta Açık Oturum yapmayı planlıyoruz. Açık oturumlar, eğitmenlere istediğiniz her soruyu sorabilmeniz için tasarlandı. Her biri 4 saatlik iki oturumumuz olacak. 
+									Geçen eğitimde bir hafta eğitimde bir aksikil oldu ve eğitim verilemedi. O günü iptal etmek yerine oturup sohbet ettik, öğrenci sorularını cevapladık.
+									Eğitim bittiğinde öğrencilerin en faydalandıkları günlerden birinin bu olduğunu öğrendik. Biz de yeni eğitime de dahil edelim dedik. 
+									Soruları biriktirin bol bol soru cevaplı iki gün bizi bekliyor.   
+									</p>
+									<p id="lab"> <b>Lab: </b> 
+									Lablarda ne anlatılacağına birlikte karar vereceğiz. Yani Lablar merak ettiğimiz java teknolojilerini öğrenmek için bir fırsat. 
+									Eğitim ilerlerken sizden gelen talepler ve hocalardan kabul etmesiyle yeni ilginç teknolojilere bakma fırsatımız olacak. 
+									Lablara toplam 8 saat ayırdık. Sanırım sadece bir kaç konuya bakabiliriz ve çok da detaylı bakacak zamanımız yok. 
+									Yinede yeni bir teknolojiye "crash course" olarak girmek beni heyecanlandırıyor.
+									Labları son haftalara koyduk. Bu şekilde öğrencilerin meraklarını son haftaya kadar aktif tutmayı planlıyoruz :) 
+									Benim şimdilik önerilerin bunlar:
+									<a href="https://www.jhipster.tech/" target="_blank">jhipster,</a>
+									<a href="http://sparkjava.com/" target="_blank">Spark java,</a> 
+									<a href="https://javalin.io/" target="_blank">javalin,</a>	 
+									<a href="https://www.playframework.com/" target="_blank">Play freamwork,</a>	
+									<a href="https://vaadin.com/" target="_blank">Vaadin</a>	 
+									<a href="https://vuejs.org/" target="_blank">VueJs</a>	
+									
+									</p>
+								</div>
+								
+								<h3 id="icerik_tablosu"><b>Hafta hafta içerik tablosu</b></h3>
+									<div class="table-wrapper">
+										<table class="alt">
+											<thead>
+												<tr>
+													<th>Hafta</th>
+													<th>Cumartesi</th>
+													<th>Pazar</th>
+													
+												</tr>
+											</thead>
+											<tbody>
+												<tr>
+													<td>1.</td>
+													<td><span style="color: #d60ed6;"> Tanışma - Enterprise architecture basit bir user CRUD dao api, thymleaf, angular</span> (Özkan + Volkan)</td>
+													<td><span style="color: #d60ed6;"> Git / Maven</span>  (Özkan)</td>
+												</tr>
+												<tr>
+													<td>2.</td>
+													<td><span style="color: #d60ed6;"> HTML, CSS, JS, JQuery, BootStrap, XML, JSON</span>  (Volkan)</td>
+													<td><span style="color: #d60ed6;">  TCP/IP Socket, Thread programlama ve http ve rest server yazılması</span>  (Koray)</td>
+												</tr>
+												<tr>
+													<td>3.</td>
+													<td><span style="color: #d60ed6;"> Servlet HTTP protokolü yaşam döngüsü Ajax</span> 	(Volkan)</td>
+													<td><span style="color: #d60ed6;"> Rest Service</span>  (Özkan)</td>
+												</tr>
+												<tr>
+													<td>4.</td>
+													<td><span style="color: #d60ed6;"> Spring MVC - Thymleaf</span> (Volkan)</td>
+													<td><span style="color: #d60ed6;"> Spring MVC - Thymleaf</span> (Volkan)</td>
+												</tr>
+												<tr>
+													<td>5.</td>
+													<td><span style="color: #d60ed6;"> Spring Security</span> (Koray)</td>
+													<td><span style="color: #2763db;"> Açık oturum</span> (Eğitmenler)</td>
+												</tr>
+												<tr>
+													<td>6.</td>
+													<td><span style="color: #d60ed6;"> Spring MVC - Thymleaf</span> (Volkan)</td>
+													<td><span style="color: #4315c1;"> Javaci Bank backoffice ekranları ve dummy dao ile yazması </span> (Volkan)</td>
+												</tr>
+												<tr>
+													<td>7.</td>
+													<td><span style="color: #d60ed6;"> SQL</span>  (Özkan)</td>
+													<td><span style="color: #4315c1;"> Javaci Bank backoffice ekranları ve dummy dao ile yazması </span> (Volkan)</td>
+												</tr>
+												<tr>
+													<td>8.</td>
+													<td><span style="color: #d60ed6;"> JDBC - Template</span>  (Özkan)</td>
+													<td><span style="color: #4315c1;"> Javaci Bank API nin yazılması </span> (Özkan)</td>
+												</tr>
+												<tr>
+													<td>9.</td>
+													<td><span style="color: #d60ed6;"> JPA - Hibernate</span>  (Özkan)</td>
+													<td><span style="color: #4315c1;"> Javaci Bank API nin yazılması </span> (Özkan)</td>
+												</tr>
+												<tr>
+													<td>10.</td>
+													<td><span style="color: #d60ed6;"> Spring Data</span>  (Özkan)</td>
+													<td><span style="color: #4315c1;"> Javaci Bank DB nin yazılması </span> (Özkan)</td>
+												</tr>
+												<tr>
+													<td>11.</td>
+													<td><span style="color: #d60ed6;"> Spring Data</span>  (Özkan)</td>
+													<td><span style="color: #4315c1;"> Javaci Bank DB nin yazılması </span> (Özkan)</td>
+												</tr>
+												<tr>
+													<td>12.</td>
+													<td><span style="color: #d60ed6;"> Angular </span>  (Hüseyin)</td>
+													<td><span style="color: #4315c1;"> Javaci Bank JWT  + Angular Uygulama  </span> (Koray - Hüseyin)</td>
+												</tr>
+												<tr>
+													<td>13.</td>
+													<td><span style="color: #d60ed6;"> Angular </span>  (Hüseyin)</td>
+													<td><span style="color: #4315c1;"> Angular Uygulama </span> (Hüseyin)</td>
+												</tr>
+												<tr>
+													<td>14.</td>
+													<td><span style="color: #d60ed6;"> Angular </span>  (Hüseyin)</td>
+													<td><span style="color: #4315c1;"> Angular Uygulama </span> (Hüseyin)</td>
+												</tr>
+												<tr>
+													<td>15.</td>
+													<td><span style="color: #d60ed6;"> JUnit </span>  (Koray)</td>
+													<td><span style="color: #4315c1;"> Javaci Bank JUnit + JMS eklenmesi </span> (Koray)</td>
+												</tr>
+												<tr>
+													<td>16.</td>
+													<td><span style="color: #d60ed6;"> JMS + Batch Process </span>  (Koray)</td>
+													<td><span style="color: #259de8;"> LAB</span> (İsteyen Eğitmen)</td>
+												</tr>
+												<tr>
+													<td>17.</td>
+													<td><span style="color: #259de8;"> LAB</span> (İsteyen Eğitmen)</td>
+													<td><span style="color: #2763db;"> Kariyer Tavsiyeleri ve Kapanış oturumu</span> (Eğitmenler)</td>
+												</tr>
+											</tbody>
+											
+										</table>
+									</div>
+								</section>
+								
+								<section id="certificate" class="main">
+										<div class="content">
+											<header class="major">
+												<h2>Örnek Sertifika</h2>
+											</header>
+											<p class="nav">
+											Eğitim sonunda online erişebileceğiniz, isminize düzenlenmiş bir E-sertifika verilecektir. <br>
+											Örnek sertifika için 
+										<a href="https://javacibank.com/sample_certificate.pdf" rel="noopener" style="text-decoration:underline;color:#0068a5" target="_blank">buraya tıklayabilirsiniz</a>. <br>
+										
+											</p>
+											
+										<span class="certificate-image"><img src="./JavaciBank_files/sertifika.png" alt=""></span>
+											
+										</div>
+								</section>
+								
+
+							<section id="team" class="main inactive">
+								<div class="spotlight">
+									<div class="content">
+										<header class="major">
+											<h2>Özkan Sarı</h2>
+										</header>
+										<p class="nav">
+											Başta Java teknolojileri olmak üzere yazılımla ilgili bir çok konuda sizlere yardımcı olabilirim. Kurumsal firmalarda görev aldığım sayısız projede edindiğim tecrübelerimi paylaşabilme imkanı bulduğum için çok mutluyum. 
+											
+											10 yıla aşkın süredir profesyonel olarak yazılım sektöründe çalışmaktayım. Bununla birlikte, özel bir üniversitede yarı zamanlı olarak Yazılım Araçları-Teknolojileri ve İleri Java dersleri vermekteyim.
+											
+											Öğrenmeyi ve öğretmeyi çok seviyorum. Öğretmek ve öğrenmeyi işten ziyade hobi olarak görüyorum. Volkan arkadaşımızla birlikte amacımız, edindiğimiz bilgiyi ve tecrübeyi aktararak kaliteli yazılımcılar yetiştirmek.
+											
+											<br><br>Eğitim Bilgilerim<br><br>
+											
+											Üniversite sınavında ilk 5000 öğrenci arasına girerek Bilgisayar Mühendisliğini özel bir üniversitede tam burslu okudum ve 3,5 ortalama ile mezun oldum. Sonrasında da Bilgisayar Mühendisliği Yüksek Lisansımı 4,0 ortalama ile tamamladım. Ayrıca iyi derecede İngilizce biliyorum (YDS: 95).
+										</p>
+										
+										<ul class="icons">
+											<li><a href="https://www.linkedin.com/in/ozkansari/" target="_blank" class="icon brands fa-linkedin alt"><span class="label">linkedin</span></a></li>
+											<li><a href="https://github.com/ozkansari/" target="_blank" class="icon brands fa-github alt"><span class="label">GitHub</span></a></li>
+											<li><a href="https://twitter.com/ozkan_sari" target="_blank" class="icon brands fa-twitter alt"><span class="label">Twitter</span></a></li>
+											<li><a href="http://ozkansari.com/" target="_blank" class="icon solid fa-desktop alt"><span class="label">Website</span></a></li>
+										</ul>
+										
+									</div>
+									<span class="lecturer-image image"><img src="./JavaciBank_files/ozkan.jpg" alt=""></span>
+								</div>
+								<div class="spotlight">
+									<div class="content">
+										<header class="major">
+											<h2>Volkan İstek</h2>
+										</header>
+										<p class="nav">
+											2005'te başladığım Java ile uygulama geliştirme serüveni takımliderliği, eğitmenlik, müdür yardımcılığı ve istifa diye devam etti :D 
+											<br>2012 de keyifi bulduğum için başladığım Java eğitimleri işi artık bir meslek haline geldi. 
+											<br>Verdiğim temel Java eğitimini Udemye koyduk 70 000 den fazla öğrenci aldı ve 1500 civarı yorum yapıldı. 
+											<br>Amacım türkiyede gerçekten kaliteli, erişilebilir yazılım eğitimleri verilmesinde payım olması. Daha detaylı bilgi için aşağıdaki linklere bakabilirsiniz.
+											
+											<a href="https://www.udemy.com/user/volkanistek/" target="_blank">Udemy sayfama burada</a>
+											 ve <a href="https://www.udemy.com/user/volkanistek/" target="_blank">ozelders.com da verilen yorumlarada buradan</a> ulaşabilirsiniz.  
+										</p>
+										
+										<ul class="icons">
+											<li><a href="https://www.linkedin.com/in/volkan-istek-00593a15/" target="_blank" class="icon brands fa-linkedin alt"><span class="label">linkedin</span></a></li>
+											<li><a href="https://github.com/volkanistek" target="_blank" class="icon brands fa-github alt"><span class="label">GitHub</span></a></li>
+											<li><a href="https://twitter.com/vistek12" target="_blank" class="icon brands fa-twitter alt"><span class="label">Twitter</span></a></li>
+										</ul>
+										
+									</div>
+									<span class="lecturer-image image"><img src="./JavaciBank_files/volkan.jpg" alt=""></span>
+								</div>
+								
+								<div class="spotlight">
+									<div class="content">
+										<header class="major">
+											<h2>Koray Geçici</h2>
+										</header>
+										<p class="nav">
+											Çocukluk yıllarında başladığım yazılım geliştirme sevdasını, 2001 yılında İstanbul üniversitesi bilgisayar mühendisliğinden mezun olarak profesyonel yaşamıma taşımış oldum. <br><br>
+											
+											15 yıldı aşkın süredir ile yazılım geliştiriyor, 10 yılı aşkın süredir yazılım ekibi yönetiyorum.<br><br>
+											
+											Yazılım dersi vermeye Volkan'ın sayesinde başladım ve benim için çok keyifli bir hobi haline geldi. Özellikle algoritma sorularını çözmeyi çok seviyorum.<br><br>
+											
+											Buradaki amacım Bilgisayar mühendisliği yada benzeri bölümlerden mezun arkadaşların gelişimlerine katkıda bulunmak ve yön vermek.
+											
+										</p>
+										
+										<ul class="icons">
+											<li><a href="https://www.linkedin.com/in/koraygecici/" target="_blank" class="icon brands fa-linkedin alt"><span class="label">linkedin</span></a></li>
+											<li><a href="https://github.com/kgecici" target="_blank" class="icon brands fa-github alt"><span class="label">GitHub</span></a></li>
+										</ul>
+										
+									</div>
+									<span class="lecturer-image image"><img src="./JavaciBank_files/koray.jpg" alt=""></span>
+								</div>
+								
+								<div class="spotlight">
+									<div class="content">
+										<header class="major">
+											<h2>Hüseyin Dönmez</h2>
+										</header>
+										<p class="nav">
+											2000 li yılların başlarında PHP ile başladığı yazılım serüvenine bir  süre sonra .NET ile devam etmiş ve uzun sure .NET le çalışıp sonrasında 2014 ten beri ağırlıklı olarak, Node.js, Javascript ve python ile Cloud Native Uygulamalar geliştirmiştir.<br><br>
+
+											Bilgisayar bilimleri eğitimine başladığı Almanya’dan bir süre sonra ABD ye geçip Computer Science alanında eğitimine devam etmiştir. Geçirdiği trafik kazası nedeniyle ara vermek zorunda kaldığı yüksek lisans eğitimini 2021 de tamamlamayı planlamaktadır.<br><br>
+											
+											İlk dönemlerde ağırlıklı olarak e-commerce , payment systems &amp; integration ağırlıklı projelerde çalışmış olup, e-ticaret ve bankacılık ve  ödeme sistemleri entegrasyonu alanında ciddi bir tecrübe edinmiştir. Son 6 senedir ise Sağlık sektörü için gerçek zamalı bulut tabanlı uygulamalar geliştiren bir firmada Senior full-stack developer olarak çalışmaktadır.<br><br>
+											
+											ABD ve Avrupa’nın en büyük İlaç firmaların bazıları, Sağlık sigortası firmalarından bir kısmi ve ABD deki bazı araştırma kurumları tarafından da kullanılan gerçek zamanlı hasta takip sistemleri ve entegrasyon projelerinden biri olan real-time screening, remote monitoring and risk assessment platformun da (‘Gerçek zamanlı tarama, uzaktan takip ve risk analizi) çalışmaktadır.<br><br>
+											
+											Bu platform altında, kronik hastalar ve özellikle gerçek zamanlı takip gerektiren hasta ve yakınları için Geliştirdiği dijital/sesli asistan 2018 yılında Gartner tarafından “Cool Vendor - AI-Powered Conversational Service Integration &amp; Automation”  ödülünü almıştır.<br><br>
+											
+											Back-end tarafında, Node.js/Javascript,  .NET ve Python ile çalışmakta, front-end tarafında ise önce Jquery ve ardından ilk versiyonun dan beri Angular ile yoğun olarak çalışmaktadır.  Dağıtık ve yüksek trafikli sistemler için Azure ve AWS platformlarını uzun süredir kullanmaktadır.<br><br>
+											
+											Gerçek hayattan, gerçek projeler ve sorunlardan elde edilen tecrübeleri, kaliteli, erişilebilir “yazılım eğitimleri” olarak yeni başlayan arkadaşlarla paylaşabileceği bir platformda yer alma gayesi ile eğitimin Angular kısmında yer almaktadır. 
+											
+										</p>
+										
+										<ul class="icons">
+											<li><a href="https://www.linkedin.com/in/hdonmez/" target="_blank" class="icon brands fa-linkedin alt"><span class="label">linkedin</span></a></li>
+											<li><a href="https://github.com/hdd42" target="_blank" class="icon brands fa-github alt"><span class="label">GitHub</span></a></li>
+										</ul>
+										
+									</div>
+									<span class="lecturer-image image"><img src="./JavaciBank_files/huseyin.jpg" alt=""></span>
+								</div>
+								
+								<div class="spotlight">
+									<div class="content">
+										<header class="major">
+											<h2>Doğan Can (Öğrenci iletişimi)</h2>
+										</header>
+										<p class="nav">
+											Yaklaşık 9 yıldır Ukrayna’da yaşıyorum. 
+											Çocukluğundan beri bilgisayar ve yazılım dillerine meraklıyım. 
+											Lisans eğitimini yazılımdan alakasız mimarlık olarak okudum. 
+											Daha sonra çocukluğumdan beri istediğim yazılım bölümününü okumaya karar verdim. 
+											Yazılım mühendisliği okuyorum . Yazılım temellerimi Volkan hocadan aldım. 
+											Ukrayna’da iş tecrübelerim oldu ve kendi girişimlerimle uğraştım uğraşmaya devam ediyorum. 
+											Javaci şirketinin Ukrayna’daki şirketinin mali ve hukuksal işlemlerini organize ediyorum. 
+											Eğitimlerin tanıtımında ve öğrenci işlemlerinden sorumlu kişiyim.
+											
+											Her türlü sorunuz ve kursa ön kayıt için benimle iletişime geçebilirsiniz. Whatsapp <a href="https://wa.me/380963110925" target="_blank" rel="noopener noreferrer">(+380 96 311 0925)</a>
+											
+										</p>
+										
+										<ul class="icons">
+											<li><a href="https://github.com/doganca" target="_blank" class="icon brands fa-github alt"><span class="label">GitHub</span></a></li>
+										</ul>
+										
+										
+									</div>
+									
+										<span class="lecturer-image image"><img src="./JavaciBank_files/dogancan.jpg" alt=""></span>
+								</div>
+								
+							</section>
+
+							<section id="price" class="main special inactive">
+								<header class="major">
+									<h2>Fiyat ve İndirimler</h2>
+								</header>
+								<ul class="alt">
+									<li>Normal: <strong>$250</strong> (Saatlik ücret: <strong>$1,83</strong>)</li>
+									<li>Öğrenci: <strong>$125</strong> (Saatlik ücret: <strong>$0,91</strong>) (Öğrenci || mezunuyetinden bir yıl gememeş) &amp;&amp; (25 &lt; yaş)</li>
+									<li>Engelli: <strong>$62,5</strong> (Saatlik ücret: <strong>$0,45</strong>) (Engelli Raporu Gerekli)</li>
+								</ul>
+								
+							</section>
+							
+							<section id="application" class="main special inactive">
+								<header class="major">
+									<h2>Başvuru</h2>
+									<p> 
+									<strong>Detaylı bilgi ve başvuru için:</strong> Doğancan Yılmaz'a ulaşabilirsiniz. Whatsapp <a href="https://wa.me/380963110925" target="_blank" rel="noopener noreferrer">(+380 96 311 0925)</a></p>
+									Yada aşağıdaki ön başvuru formunu doldurursanız biz de size geri dönüş yapabiliriz.	
+								</header>
+								<span>
+									<form method="post" action="https://javacibank.com/">
+										<div class="row gtr-uniform">
+											<div class="col-12 col-12-xsmall">
+												<input type="text" name="fulname" id="fulname" value="" placeholder="Ad Soyad" required="">
+											</div>
+											<div class="col-12 col-12-xsmall">
+												<input type="email" name="email" id="email" value="" placeholder="E-Posta" required="">
+											</div>
+											<div class="col-12 col-12-xsmall">
+												<input type="text" name="phone" id="phone" value="" placeholder="Telefon" required="">
+											</div>
+											
+											<div class="col-12">
+												<ul class="actions">
+													<li><input type="submit" value="Gönder" class="primary"></li>
+												</ul>
+											</div>
+										</div>
+									</form>
+								</span>
+    							
+							</section>
+    
+							<section id="game" class="main special inactive">
+								<header class="major">
+									<h2>Oyun</h2>
+									<p>Dur gitme acık oyun oynayalım. </p>
+									<ul class="actions special">
+										<li><a href="javascript: findNewGame();" class="button primary">Bana başka bir oyun bul</a></li>
+									</ul>
+								</header>
+								<a id="gameLocation" href="http://openhtml5games.github.io/games-mirror/dist/mariohtml5/main.html" target="_blank">İyi görünmüyorsa buraya tıklayıp oynayabilirsin</a>
+								<br><br>
+								<iframe id="gameFrame" src="./JavaciBank_files/main.html" width="500px" height="500px"></iframe>
+    
+							</section>
+
+					</div>
+
+				<!-- Footer -->
+					<footer id="footer">
+						<section>
+							<p>Java Teknolojileri (Spring + Angular) Eğitimi ve eğitim kapsamında yazılan javaciBank projesi. Javaci.net tarafından hazırlanmıştır</p>
+							
+						</section>
+						<section>
+							<h2>İletişim Bilgileri</h2>
+							<dl class="alt">
+								<dt>Phone</dt>
+								<dd><a href="https://wa.me/380963110925" target="_blank" rel="noopener noreferrer">(+380 96 311 0925)</a></dd>
+								<dt>Email</dt>
+								<dd><a href="https://javacibank.com/#">javacinet@gmail.com</a></dd>
+								<dt>Address</dt>
+								<dd>Shota Rustaveli St, 46/48 Kharkiv Kharkivs'ka oblast Ukrayna 61000</dd>
+							</dl>
+							<ul class="icons">
+								<li><a href="https://twitter.com/javacinet" target="_blank" class="icon brands fa-twitter alt"><span class="label">Twitter</span></a></li>
+								<li><a href="https://www.facebook.com/javacinet" target="_blank" class="icon brands fa-facebook-f alt"><span class="label">Facebook</span></a></li>
+								<li><a href="https://www.instagram.com/javacinet/" target="_blank" class="icon brands fa-instagram alt"><span class="label">Instagram</span></a></li>
+								<li><a href="https://www.youtube.com/channel/UCjmsqdwoU60LA8pOv4YbgEw" target="_blank" class="icon brands fa-youtube alt"><span class="label">Youtube</span></a></li>
+								<li><a href="https://github.com/javaci-net" target="_blank" class="icon brands fa-github alt"><span class="label">GitHub</span></a></li>
+								<li><a href="https://www.linkedin.com/in/volkan-istek-00593a15/" target="_blank" class="icon brands fa-linkedin alt"><span class="label">linkedin</span></a></li>
+								
+							</ul>
+						</section>
+						<p class="copyright">Bu sayfa <a href="http://javaci.net/" target="_blank">Javaci.net</a> te verilen Java Teknolojileri (Spring + Angular) eğitimini ve eğitim süresince yazılacak JavaciBank projesini tanıtmak için hazırlanmıştır. 
+							<br> Bu güzel template için <a href="https://html5up.net/" target="_blank">HTML5 UP</a> a teşekkürler</p>
+					</footer>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="./JavaciBank_files/jquery.min.js"></script>
+			<script src="./JavaciBank_files/jquery.scrollex.min.js"></script>
+			<script src="./JavaciBank_files/jquery.scrolly.min.js"></script>
+			<script src="./JavaciBank_files/browser.min.js"></script>
+			<script src="./JavaciBank_files/breakpoints.min.js"></script>
+			<script src="./JavaciBank_files/util.js"></script>
+			<script src="./JavaciBank_files/main.js"></script>
+			
+			<script>
+			var gamesSites = [
+				// Mobil Freinedly
+				"https://hextris.io/", // desktop unfriendly
+				"https://play2048.co/", 
+				"http://muan.github.io/emoji-minesweeper/",
+				"http://openhtml5games.github.io/games-mirror/dist/mariohtml5/main.html",
+				"http://ellisonleao.github.io/clumsy-bird/",
+
+				"http://cykod.github.io/AlienInvasion/", // ???
+				"https://duckhuntjs.com/", // ???
+				
+				// Desktop
+				"https://berkerol.ml/typer/typer.html",
+				"http://js13kgames.com/games/radius-raid/index.html",
+				"https://mk.mgechev.com/",
+				"http://gamegur-us.github.io/circushtml5/",
+				/*
+				// Key transfer problem
+				"http://hexgl.bkcore.com/play/",
+				"https://ytiurin.github.io/tetris/",
+				"https://wwwtyro.github.io/Astray/",
+				*/
+				];
+			
+		    function findNewGame() {
+		    	var currentSite = document.getElementById("gameLocation").getAttribute("href");
+		    	
+		    	var newSite = gamesSites[Math.floor(Math.random() * gamesSites.length)];
+		    	
+		    	while(newSite === currentSite)
+		    		newSite = gamesSites[Math.floor(Math.random() * gamesSites.length)];
+		    	
+		    	document.getElementById("gameLocation").setAttribute("href", newSite);
+		    	document.getElementById("gameFrame").setAttribute("src", newSite);
+		       return false;
+		    }
+
+	    </script>
+
+		<!-- Default Statcounter code for javacibank.com http://javacibank.com -->
+		<script type="text/javascript">
+			var sc_project = 12412607;
+			var sc_invisible = 1;
+			var sc_security = "c165dc75";
+		</script>
+		<script type="text/javascript" src="./JavaciBank_files/counter.js" async=""></script>
+		<noscript>
+			<div class="statcounter">
+				<a title="real time web
+	analytics" href="https://statcounter.com/"
+					target="_blank"><img class="statcounter"
+					src="https://c.statcounter.com/12412607/0/c165dc75/1/"
+					alt="real time web analytics"></a>
+			</div>
+		</noscript>
+		<!-- End of Statcounter Code -->
+	
+
+</body></html>

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<!-- saved from url=(0042)https://ellisonleao.github.io/clumsy-bird/ -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><script type="text/javascript">
+    (function() {
+      var container = document.querySelector('#_tcx-ca0osikztov');
+      if (!container) {
+        return;
+      }
+
+      function addToContainer(url, text) {
+        const wrapper = document.createElement('div');
+        wrapper.setAttribute('data-tcx-url', url);
+        wrapper.innerText = text;
+        container.appendChild(wrapper);
+      }
+
+      const fetch = window.fetch
+      window.fetch = function() {
+        return Promise.resolve(fetch.apply(window, arguments))
+            .then(async response => {
+              if (response.ok) {
+                try {
+                  const clone = response.clone();
+                  const json = await clone.json();
+                  addToContainer(clone.url, JSON.stringify(json));
+                } catch (err) {}
+              }
+              return response;
+            });
+      };
+
+      var XHR = XMLHttpRequest.prototype;
+      var send = XHR.send;
+      var open = XHR.open;
+      XHR.open = function(method, url) {
+        this.url = url;
+        return open.apply(this, arguments);
+      };
+      XHR.send = function() {
+        this.addEventListener('load', function() {
+          try {
+            const response = this.response;
+            if (response && response.length) {
+              const firstChar = response[0];
+              if (firstChar === '[' || firstChar === '{') {
+                addToContainer(this.url, response);
+              }
+            }
+          } catch (err) {
+            // No-op.
+          }
+        });
+        return send.apply(this, arguments);
+      };
+    })();
+  </script>
+        <title>Clumsy Bird</title>
+        <link rel="apple-touch-icon-precomposed" href="https://ellisonleao.github.io/clumsy-bird/data/img/touch-icon-iphone.png">
+        <link rel="apple-touch-icon-precomposed" sizes="120x120" href="https://ellisonleao.github.io/clumsy-bird/data/img/touch-icon-iphone-retina.png">
+        <link rel="shortcut icon" href="https://ellisonleao.github.io/clumsy-bird/data/img/favicon.ico">
+        <link rel="stylesheet" type="text/css" media="screen" href="./index.css">
+        <meta id="viewport" name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+        <meta name="apple-mobile-web-app-title" content="Clumsy Bird">
+        
+        <meta name="description" content="Clumsy Bird - A Flappy Bird clone using MelonJS">
+        <meta name="keywords" content="flappybird, flappy, bird, game, html5, melonjs,clone">
+        <meta name="robots" content="index, follow">
+        <meta name="google-site-verification" content="RDZI9SqVaffd48uHfZMv67-YdvviOMe2HuULEYqVgd4">
+        <meta property="og:image" content="http://ellisonleao.github.io/clumsy-bird/data/img/bg.png">
+        <meta property="og:title" content="Clumsy Bird - A Flappy Bird clone using MelonJS">
+        <meta property="og:url" content="http://ellisonleao.github.io/clumsy-bird/">
+        <meta property="og:site_name" content="Clumsy Bird - MelonJS">
+
+        <!-- Twitter Card -->
+        <meta name="twitter:hashtag" content="clumsybird">
+        <meta name="twitter:card" content="summary">
+        <meta name="twitter:site" content="@ellisonleao">
+        <meta name="twitter:creator" content="@ellisonleao">
+        <meta name="twitter:title" content="Clumsy Bird">
+        <meta name="twitter:description" content="A Flappy Bird melonJS clone">
+
+        <!-- Humans -->
+        <link rel="author" href="https://ellisonleao.github.io/clumsy-bird/humans.txt">
+    <style></style><script src="chrome-extension://mooikfkahbdckldjjndioackbalphokd/assets/prompt.js"></script></head>
+
+    <body data-new-gr-c-s-check-loaded="14.991.0" data-gr-ext-installed="">
+        <!-- Canvas placeholder -->
+        <div id="screen"><canvas width="1200" height="800" style="image-rendering: pixelated;"></canvas></div>
+
+        <!-- melonJS Library -->
+        <script type="text/javascript" src="./melonJS-min.js"></script>
+        <script type="text/javascript" src="./clumsy-min.js"></script>
+        <script type="text/javascript">
+            window.onReady(function onReady() {
+                game.onload();
+            });
+        </script>
+
+    
+
+</body></html>
