@@ -5,7 +5,7 @@ Tomcat ve Servlet versiyonları
 
 
 ServletExamples Projesi
-	ServletFormResponse.java 
+	ServletFormLogin.java 
 	GET POST
 		https://www.restapitutorial.com/lessons/httpmethods.html#:~:text=The%20primary%20or%20most%2Dcommonly,but%20are%20utilized%20less%20frequently.
 		Postman
@@ -25,7 +25,6 @@ ServletExamples Projesi
 	loginFormJQuery.html
 		Query Selector
 	loginFormBootstrap.html
-		Validation calışmıyor
 
 	Servlet Detay
 		Http Servlet
@@ -55,6 +54,8 @@ ServletExamples Projesi
 		_05_session
 		_06_exception
 		_07_cookie
+		_08_ajax
+
 		
 
 	Ajax
@@ -62,31 +63,12 @@ ServletExamples Projesi
 		https://www.w3schools.com/xml/ajax_xmlhttprequest_response.asp
 
 	JQuery
-		https://jqueryui.com/autocomplete/
 		https://www.w3schools.com/jquery/ajax_ajax.asp
 
 	bootstrap 
 		https://raw.githack.com/xcash/bootstrap-autocomplete/master/dist/latest/index.html
 		https://bootstrap-autocomplete.readthedocs.io/en/latest/
 
+	Fetch yöntemi
 
 	Bootstrap CRUD Servlet
-
-		_09_filters
-		
-
-		web.xml 
-			servlet mapping
-			welcome-file-list
-
-
-
-	Servlet interface
-	Generic Servlet
-	WebSocket????
-
-	Maven projesiyle servlet oluşturmak 
-
-	_03_configContex
-	_08_urlPatternsAndLoadOnStartup
-	_11_listener
