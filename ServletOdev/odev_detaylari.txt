@@ -1,0 +1,13 @@
+Merhaba servlet ve JQuery yi kullanabileceginiz kucuk bir odev hazirladim. 
+
+Odevi apmak icin sirasiyla asagidakileri takip etmelisiniz:
+
+1) Videoda gosterildigi gibi git ten codlari alip ServletOdev projesini olusturup calistirmalisiniz
+2) edit butonuna basildiginda sacili satirin datalarini edit panelinde gosteren bir kod (JS, JQuery) yazmalisiniz. 
+Bunun icin videoda anlattigin delete kismina bakabilirsiniz.
+3) tum html kodunu src altinda bir template e tasi. Ornegini derste yapmistik ve gitteki ServletOdev projesinin icine calisir halini koydum. 
+Tasima isleminden son  template dosyasinda <tbody></tbody> elementinin icindeki her seyi silip yetine @@table_body@@ yikoyabilirsiniz 
+
+4) BSCRUD sinifi icerisindeki loadFromTemplate metodunu bu olusturdugunuz dosyayi okuyacak ve listedeki elemanlari tablonun icine yazacak sekilde degistirin.
+
+Sorun yasarsaniz slackten bana ulasabilirsiniz 
