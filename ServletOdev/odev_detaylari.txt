@@ -10,4 +10,6 @@ Tasima isleminden son  template dosyasinda <tbody></tbody> elementinin icindeki 
 
 4) BSCRUD sinifi icerisindeki loadFromTemplate metodunu bu olusturdugunuz dosyayi okuyacak ve listedeki elemanlari tablonun icine yazacak sekilde degistirin.
 
+5) BSCRUD sinifi icindeki TODO lar yapilacak
+
 Sorun yasarsaniz slackten bana ulasabilirsiniz 
