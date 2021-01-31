@@ -1,0 +1,10 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body>    
+Template icinden <br>
+<label ><b>Email: </b></label> <label>@@email@@</label><br>        
+<label ><b>Password: </b></label> <label>@@password@@</label><br>    <br>
+</body>
+</html>
