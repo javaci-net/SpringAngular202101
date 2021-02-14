@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+	<h1 >Include 1</h1>
+	<p th:include="fragment/common.html :: partA"></p>
+	
+	<h1 >Include 2</h1>
+	<p th:include="fragment/common.html :: partB"></p>
+	
+	<h1 >Insert 1</h1>
+	<p th:insert="fragment/common.html :: partA"></p>
+	
+	<h1 >Insert 2</h1>
+	<p th:insert="fragment/common.html :: partB"></p>
+	
+	<h1 >Replace 1</h1>
+	<p th:replace="fragment/common.html :: partA"></p>
+	
+	<h1 >Replace 2</h1>
+	<p th:replace="fragment/common.html :: partB"></p>
+	
+	
+	<h1 >Include 1</h1>
+	<th:block th:include="fragment/common.html :: partA"></th:block>
+	
+	<h1 >Include 2</h1>
+	<th:block th:include="fragment/common.html :: partB"></th:block>
+	
+	<h1 >Insert 1</h1>
+	<th:block th:insert="fragment/common.html :: partA"></th:block>
+	
+	<h1 >Include 2</h1>
+	<th:block th:insert="fragment/common.html :: partB"></th:block>
+	
+	<h1 >Replace 1</h1>
+	<th:block th:replace="fragment/common.html :: partA"></th:block>
+	
+	<h1 >Replace 2</h1>
+	<th:block th:replace="fragment/common.html :: partB"></th:block>
+	
+</body>
+</html>
