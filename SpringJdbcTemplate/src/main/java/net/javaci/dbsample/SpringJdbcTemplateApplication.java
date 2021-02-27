@@ -1,4 +1,4 @@
-package net.javaci.dbsample.SpringJdbcTemplate;
+package net.javaci.dbsample;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
