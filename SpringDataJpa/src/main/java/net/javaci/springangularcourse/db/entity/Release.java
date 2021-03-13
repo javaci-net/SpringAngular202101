@@ -22,6 +22,55 @@ public class Release {
     
     private LocalDateTime releaseDateTime;
     
-    @ManyToMany(mappedBy = "release")
+    @ManyToMany
+    /*--
+    @JoinTable(name = "application_release",
+            joinColumns = @JoinColumn(referencedColumnName = "id" ),
+            inverseJoinColumns = @JoinColumn(referencedColumnName = "id")
+    )
+     */
     private Set<Application> application;
+
+    protected Release() {
+        super();
+    }
+    
+    public Release(String name, LocalDateTime releaseDateTime, Set<Application> application) {
+        super();
+        this.name = name;
+        this.releaseDateTime = releaseDateTime;
+        this.application = application;
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public LocalDateTime getReleaseDateTime() {
+        return releaseDateTime;
+    }
+
+    public void setReleaseDateTime(LocalDateTime releaseDateTime) {
+        this.releaseDateTime = releaseDateTime;
+    }
+
+    public Set<Application> getApplication() {
+        return application;
+    }
+
+    public void setApplication(Set<Application> application) {
+        this.application = application;
+    }
 }
