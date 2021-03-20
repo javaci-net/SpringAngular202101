@@ -1,4 +1,4 @@
-package net.javaci.springangularcourse.db.dao.impl;
+package net.javaci.springangularcourse.db.dao.jpaimpl;
 
 import java.util.List;
 

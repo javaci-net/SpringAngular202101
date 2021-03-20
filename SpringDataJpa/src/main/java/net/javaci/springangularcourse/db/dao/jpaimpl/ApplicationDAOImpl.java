@@ -1,4 +1,4 @@
-package net.javaci.springangularcourse.db.dao.impl;
+package net.javaci.springangularcourse.db.dao.jpaimpl;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
