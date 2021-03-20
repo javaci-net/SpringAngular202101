@@ -56,14 +56,14 @@ public class SpringDataJpaApp implements CommandLineRunner {
         testDAOUpdate();
         
         // ticketDAO.removeTicketById(6);
-        applicationDAO.removeApplicationById(1);
+        applicationDAO.deleteById(1);
         // printDBInfo();
     }
 
     private void testDAOUpdate() {
-        Application before = applicationDAO.getApplicationById(1);
+        Application before = applicationDAO.findById(1).get();
         applicationDAO.updateNameAndOwnerById(1, "Javaci Bank Admin Ekrani", "Koray");
-        Application after = applicationDAO.getApplicationById(1);
+        Application after = applicationDAO.findById(1).get();
         
         log.info("Name: {} -> {} , Owner: {} -> {}", before.getName(), after.getName(), before.getOwner(),
                 after.getOwner());
@@ -96,7 +96,7 @@ public class SpringDataJpaApp implements CommandLineRunner {
         log.info("Application 1 found: {}", app1.getName());
         
         log.info("TICKETS *****************************************");
-        app1.getTickets().forEach(t -> log.info("Related ticket: {}",t));
+        // app1.getTickets().forEach(t -> log.info("Related ticket: {}",t));
         
         // Yukarida "getApplicationWithTicketsById" ile yalnizca tickets'ı joinliyoruz, release laz init exception alacak
         // log.info("RELEASES *****************************************");
@@ -112,11 +112,11 @@ public class SpringDataJpaApp implements CommandLineRunner {
     private void testDaoAddMethods() {
         // Create applications
         Application backofficeApp = new Application("Javaci Bank Backoffice", "Volkan", "Javaci Bank Backoffice - Thymeleaf application");
-        applicationDAO.addApplication(backofficeApp);
+        applicationDAO.save(backofficeApp);
         Application restApp = new Application("Javaci Bank Api", "Ozkan", "Javaci Bank REST API");
-        applicationDAO.addApplication(restApp);
+        applicationDAO.save(restApp);
         Application internetSubeApp = new Application("Javaci Bank Internet Sube", "Huseyin", "Javaci Bank Internet SUbe - Angular application");
-        applicationDAO.addApplication(internetSubeApp);
+        applicationDAO.save(internetSubeApp);
         
         // Create tickets
         Ticket ticket1 = new Ticket("Login Hatasi", "OPEN", "Tr karakterli kullanici adiyla login olamiyorum", backofficeApp);

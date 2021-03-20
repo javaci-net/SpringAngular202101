@@ -1,12 +1,14 @@
 package net.javaci.springangularcourse.db.dao;
 
+import java.util.Optional;
+
 import net.javaci.springangularcourse.db.entity.Application;
 
 public interface ApplicationDAO {
 
-    void addApplication(Application entity);
+    void save(Application entity);
     
-    Application getApplicationById(Integer id);
+    Optional<Application> findById(Integer id);
     
     Application getApplicationWithTicketsById(Integer id);
     
@@ -16,5 +18,5 @@ public interface ApplicationDAO {
     
     void updateNameAndOwnerById(Integer id, String name, String owner);
     
-    void removeApplicationById(Integer id);
+    void deleteById(Integer id);
 }

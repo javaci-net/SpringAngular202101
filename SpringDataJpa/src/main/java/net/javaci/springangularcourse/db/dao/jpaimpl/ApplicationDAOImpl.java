@@ -1,5 +1,7 @@
 package net.javaci.springangularcourse.db.dao.jpaimpl;
 
+import java.util.Optional;
+
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.criteria.CriteriaBuilder;
@@ -8,11 +10,13 @@ import javax.persistence.criteria.Expression;
 import javax.persistence.criteria.Root;
 import javax.transaction.Transactional;
 
+import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Repository;
 
 import net.javaci.springangularcourse.db.dao.ApplicationDAO;
 import net.javaci.springangularcourse.db.entity.Application;
 
+@Profile("!springrepo")
 @Transactional
 @Repository
 public class ApplicationDAOImpl implements ApplicationDAO {
@@ -21,13 +25,14 @@ public class ApplicationDAOImpl implements ApplicationDAO {
     private EntityManager entityManager;
 
     @Override
-    public void addApplication(Application entity) {
+    public void save(Application entity) {
         entityManager.persist(entity);
     }
 
     @Override
-    public Application getApplicationById(Integer id) {
-        return entityManager.find(Application.class, id);
+    public Optional<Application> findById(Integer id) {
+        Application result = entityManager.find(Application.class, id);
+        return Optional.of(result);
     }
 
     @Override
@@ -67,15 +72,15 @@ public class ApplicationDAOImpl implements ApplicationDAO {
 
     @Override
     public void updateNameAndOwnerById(Integer id, String name, String owner) {
-        Application app = getApplicationById(id);
+        Application app = findById(id).get();
         app.setName(name);
         app.setOwner(owner);
         entityManager.flush();
     }
 
     @Override
-    public void removeApplicationById(Integer id) {
-        Application app = getApplicationById(id);
+    public void deleteById(Integer id) {
+        Application app = findById(id).get();
         entityManager.remove(app);
     }
 
