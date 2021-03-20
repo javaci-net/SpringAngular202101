@@ -79,5 +79,14 @@ public class ApplicationDAOImpl implements ApplicationDAO {
         entityManager.remove(app);
     }
 
-    
+    @Override
+    public Application getApplicationWithTicketsById(Integer id) {
+        String jpql = "SELECT a from Application a " + "INNER JOIN FETCH a.tickets t " + "WHERE a.id = ?1";
+        Application result = (Application) entityManager
+                .createQuery(jpql)
+                .setParameter(1, id)
+                .getSingleResult();
+        return result;
+    }
+   
 }

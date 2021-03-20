@@ -8,6 +8,8 @@ public interface ApplicationDAO {
     
     Application getApplicationById(Integer id);
     
+    Application getApplicationWithTicketsById(Integer id);
+    
     boolean applicationExists(String name, String owner);
     
     boolean applicationExists2(String name, String owner);

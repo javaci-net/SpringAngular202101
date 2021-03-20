@@ -91,8 +91,16 @@ public class SpringDataJpaApp implements CommandLineRunner {
     }
 
     private void testDaoGetByIdMethods() {
-        Application app1 = applicationDAO.getApplicationById(1);
+        // Application app1 = applicationDAO.getApplicationById(1);
+        Application app1 = applicationDAO.getApplicationWithTicketsById(1);
         log.info("Application 1 found: {}", app1.getName());
+        
+        log.info("TICKETS *****************************************");
+        app1.getTickets().forEach(t -> log.info("Related ticket: {}",t));
+        
+        // Yukarida "getApplicationWithTicketsById" ile yalnizca tickets'ı joinliyoruz, release laz init exception alacak
+        // log.info("RELEASES *****************************************");
+        // app1.getRelease().forEach(r -> log.info("Related release: {}", r));
         
         Ticket ticket4 = ticketDAO.getTicketById(4);
         log.info("Ticket 4 found: {}", ticket4.getDesc());
