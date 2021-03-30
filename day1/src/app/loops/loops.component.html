@@ -1,0 +1,40 @@
+<hr />
+<app-projected-child [title]="'Loops'" [cardTitle]="'Looping in angular with ngFor'" >
+  <div slot="text">
+
+    <table class="table table-sm table-bordered">
+      <thead>
+      <tr>
+        <th>Index</th>
+        <th>name</th>
+        <th>money</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr
+        *ngFor="let name of names ; let i = index; let odd =odd; let even =even"
+        [ngClass]="{'alert alert-light' :odd   , 'alert alert-success'  :even}"
+      >
+        <td>{{i +1}}</td>
+        <td>{{name.name}}</td>
+
+        <td>
+          <button *ngIf="name.money < 100" class="btn btn-sm btn-danger">{{name.money | currency:'USD'}}
+          </button>
+          <button *ngIf="name.money >= 100" class="btn btn-sm btn-success">{{name.money |  currency:'USD'}}
+          </button>
+
+
+          <div [ngSwitch]="name.role" class="m-2">
+            <button class="btn btn-sm btn-danger" *ngSwitchCase="'admin'">Delete</button>
+            <button class="btn btn-sm btn-info" *ngSwitchCase="'manager'">Edit</button>
+            <button class="btn btn-sm btn-success" *ngSwitchCase="'user'">Details</button>
+            <button class="btn btn-sm" *ngSwitchDefault="">No role</button>
+          </div>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+
+  </div>
+</app-projected-child>

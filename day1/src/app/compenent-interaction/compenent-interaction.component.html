@@ -1,0 +1,22 @@
+
+
+<div class="card">
+  <div class="card-header">
+    Parent Component (Direct relation)
+  </div>
+  <div class="card-body">
+    <app-direct [dataFromParent]="directRelationData" (receiveDataFromChild)="receiveDataFromChild($event)"></app-direct>
+    <h3>Data from child : <div class="alert alert-primary">
+      {{dataFromChildComponent}}
+    </div> </h3>
+
+    <button (click)="resetChild()" class="btn btn-sm btn-warning"> Reset Child Component</button>
+    <hr />
+
+    <h3>Data from some other component</h3>
+    <div class="alert alert-light">{{dataFromUnrelatedComponent}}</div>
+    <button (click)="getDataFromService()" class="btn btn-sm btn-danger" style="margin-right: 5px;"> Receive Data from service</button>
+    <button class="btn btn-sm btn-danger" (click)="setDataOnService()"> Set shared data</button>
+
+  </div>
+</div>
