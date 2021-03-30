@@ -5,14 +5,17 @@ import { Injectable } from '@angular/core';
 })
 export class MessageService {
 
-  private sharedData =""
+  private sharedData = "no one has set to me so far"
+
   constructor() { }
 
   getData(){
     return this.sharedData;
   }
 
-  setData(msg){
-    this.sharedData = msg;
+  setData(msg :string){
+    this.sharedData = msg
+
   }
+
 }

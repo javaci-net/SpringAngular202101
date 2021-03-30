@@ -1,4 +1,4 @@
-import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {Component, OnInit, Input, Output, EventEmitter} from '@angular/core';
 
 @Component({
   selector: 'app-direct',
@@ -6,20 +6,23 @@ import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
   styleUrls: ['./direct.component.css']
 })
 export class DirectComponent implements OnInit {
-  @Input('dataFromParent') dataFromParent : string;
-  @Output() receiveDataFromChild = new EventEmitter<string>();
-  childData: any;
+  childData :any
+  @Input('dataFromParent') dataFromParent : string
+  @Output() receiveDataFromChild =  new EventEmitter<string>() ;
   dataSentCount = 0;
+
   constructor() { }
 
   ngOnInit(): void {
     if (!this.dataFromParent){
-      this.dataFromParent ='No data Provided'
+        this.dataFromParent = "No data from parent"
     }
+
   }
 
-  sendDataToParent() {
+  sendDataToParent(){
     this.receiveDataFromChild.emit(this.childData)
-    this.dataSentCount +=1;
+    this.dataSentCount +=1
   }
+
 }

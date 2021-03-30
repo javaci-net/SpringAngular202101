@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-loops',
@@ -12,10 +12,13 @@ export class LoopsComponent implements OnInit {
     {name: 'Ayse', id: 1, money: 600, role: 'user'}
   ];
 
-  constructor() {
-  }
+  constructor() { }
 
   ngOnInit(): void {
+
   }
 
+  getCssClass(name: { role: string; money: number; name: string; id: number } | { role: string; money: number; name: string; id: number } | { role: string; money: number; name: string; id: number }) {
+   let cssClass = name.role === 'admin' ?  'admin-css' :'user-css'
+  }
 }

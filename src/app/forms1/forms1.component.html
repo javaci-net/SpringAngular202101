@@ -7,20 +7,25 @@
   <div class="card-body">
     <h5 class="card-title">Search Form </h5>
 
-    <form (ngSubmit)="searchSubmit()" #searchForm = ngForm>
+    <form (ngSubmit)="searchFormSubmit()" #searchForm=ngForm>
       <div class="mb-3">
         <label for="search" class="form-label">Search in products</label>
-        <input [(ngModel)]="searchModel.searchText" type="text"
+        <input  type="text"
                class="form-control" name="searchText"
                id="search"  placeholder="search..." required
-              #searchText="ngModel"
+             [(ngModel)]="searchModel.searchText"
+                #searchTextBox="ngModel"
         >
-        <div [hidden]="searchText.valid || searchText.pristine"
-             class="form-text alert alert-warning">This field is required. (Min 3 character)</div>
+        <div [hidden]="searchTextBox.valid || searchTextBox.pristine"
+             class="form-text alert alert-warning">
+          This field is required. (Min 3 character)
+        </div>
       </div>
       <div class="mb-3 form-check">
-        <input [(ngModel)]="searchModel.isCaseSensitive" type="checkbox" name="caseSensitive"
-               class="form-check-input" id="searchCaseSensitive">
+        <input  type="checkbox" name="caseSensitive"
+               class="form-check-input" id="searchCaseSensitive"
+              [(ngModel)]="searchModel.isCaseSensitive"
+        >
         <label class="form-check-label" for="searchCaseSensitive">Case Sensitive</label>
 
       </div>

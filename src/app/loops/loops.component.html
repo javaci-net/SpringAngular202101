@@ -1,5 +1,6 @@
-<hr />
-<app-projected-child [title]="'Loops'" [cardTitle]="'Looping in angular with ngFor'" >
+<hr/>
+
+<app-projected-child [cardTitle]="'Loops and conditions'" [title]="'ng for and nqswicth ngif'">
   <div slot="text">
 
     <table class="table table-sm table-bordered">
@@ -11,25 +12,32 @@
       </tr>
       </thead>
       <tbody>
-      <tr
-        *ngFor="let name of names ; let i = index; let odd =odd; let even =even"
-        [ngClass]="{'alert alert-light' :odd   , 'alert alert-success'  :even}"
+      <tr *ngFor="let name of names ; let idx = index ; let tek = odd; let cift = even ;"
+          [ngClass]="{'alert alert-primary' : tek, 'alert alert-success' :cift  }"
       >
-        <td>{{i +1}}</td>
-        <td>{{name.name}}</td>
+        <td>{{idx + 1}}</td>
+        <td>{{name.name}}
+
+        </td>
 
         <td>
-          <button *ngIf="name.money < 100" class="btn btn-sm btn-danger">{{name.money | currency:'USD'}}
+          <button *ngIf="name.money < 100" class="btn btn-sm btn-danger">
+            {{name.money}}
           </button>
-          <button *ngIf="name.money >= 100" class="btn btn-sm btn-success">{{name.money |  currency:'USD'}}
+          <button *ngIf="name.money > 100 " class="btn btn-sm btn-success">
+            {{name.money}}
           </button>
 
 
           <div [ngSwitch]="name.role" class="m-2">
-            <button class="btn btn-sm btn-danger" *ngSwitchCase="'admin'">Delete</button>
-            <button class="btn btn-sm btn-info" *ngSwitchCase="'manager'">Edit</button>
-            <button class="btn btn-sm btn-success" *ngSwitchCase="'user'">Details</button>
-            <button class="btn btn-sm" *ngSwitchDefault="">No role</button>
+            <div *ngSwitchCase="'admin'">
+              <button class="btn btn-sm btn-danger">Delete</button>
+              <button class="btn btn-sm btn-info">Edit</button>
+            </div>
+
+            <button *ngSwitchCase="'manager'" class="btn btn-sm btn-info">Edit</button>
+            <button *ngSwitchCase="'user'" class="btn btn-sm btn-success">Details</button>
+            <button *ngSwitchDefault class="btn btn-sm">No role</button>
           </div>
         </td>
       </tr>
@@ -38,3 +46,5 @@
 
   </div>
 </app-projected-child>
+
+

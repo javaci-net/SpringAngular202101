@@ -7,15 +7,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  name = 'Volkan';
-  name1 = 'Huseyin'
-  isDisabled = false;
   constructor() { }
 
   ngOnInit(): void {
   }
 
-  enableDisable(){
-    this.isDisabled =!this.isDisabled;
-  }
 }

@@ -1,17 +1,21 @@
-
-
 <div class="card">
-  <div class="card-header">
-
-  </div>
-  <div class="card-body">
-    <h5 class="card-title"></h5>
-    <div class="card-text">
-      <ng-content select="[slot=text]"></ng-content>
+    <div class="card-header">
+    {{title}}
     </div>
+    <div class="card-body">
+      <h5 class="card-title">
+        {{cardTile}}
+      </h5>
+      <div class="card-text">
+        <ng-content select="[slot=text]">
+
+        </ng-content>
+      </div>
 
 
-    <a href="#" class="btn btn-primary">Go somewhere</a>
-    <ng-content select="[slot=button]"></ng-content>
+      <a href="#" class="btn btn-primary">Go somewhere</a>
+      <ng-content select="[slot=button]">
+
+      </ng-content>
+    </div>
   </div>
-</div>

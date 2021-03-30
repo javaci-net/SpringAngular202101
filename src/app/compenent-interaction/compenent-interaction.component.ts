@@ -1,4 +1,4 @@
-import {AfterViewInit, Component, OnInit, ViewChild} from '@angular/core';
+import {Component, OnInit, ViewChild} from '@angular/core';
 import {DirectComponent} from './direct/direct.component';
 import {MessageService} from '../message.service';
 
@@ -7,37 +7,34 @@ import {MessageService} from '../message.service';
   templateUrl: './compenent-interaction.component.html',
   styleUrls: ['./compenent-interaction.component.css']
 })
-export class CompenentInteractionComponent implements OnInit, AfterViewInit {
-  directRelationData = "I'm coming from component-interaction-component"
+export class CompenentInteractionComponent implements OnInit {
+  directRelationData = 'Data from parent';
   dataFromChildComponent = ""
-  dataFromUnrelatedComponent = "";
+
+  dataFromUnrelatedComponent ;
 
   @ViewChild(DirectComponent) refToChildComponent;
 
-  constructor(private messagesService: MessageService) { }
+  constructor(private  messageService : MessageService) {
+
+  }
 
   ngOnInit(): void {
-
   }
 
-  receiveDataFromChild(event) {
-  this.dataFromChildComponent = event
-    this.directRelationData = `You just sent me ${event}`
+  receiveDataFromChild($event: string) {
+   this.dataFromChildComponent = $event
   }
 
-  ngAfterViewInit(): void {
-
-  }
-
-  resetChild() {
+  resetChild(){
     this.refToChildComponent.dataSentCount = 0;
   }
 
-  getDataFromService() {
-    this.dataFromUnrelatedComponent = this.messagesService.getData();
+  getDataFromService(){
+    this.dataFromUnrelatedComponent = this.messageService.getData()
   }
 
-  setDataOnService() {
-    this.messagesService.setData(new Date().toISOString())
+  setDataOnService(){
+    this.messageService.setData(new Date().toISOString())
   }
 }

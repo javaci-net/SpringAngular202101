@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-projected-child',
@@ -6,14 +6,12 @@ import {Component, Input, OnInit} from '@angular/core';
   styleUrls: ['./projected-child.component.css']
 })
 export class ProjectedChildComponent implements OnInit {
-  @Input('title') title :string;
-  @Input('cardTitle') cardTitle :string;
+ @Input('title') title = 'No title'
+ @Input('cardTitle') cardTile = "no card title"
+
   constructor() { }
 
   ngOnInit(): void {
-   if (!this.title) {
-     this.title = 'default title'
-   }
   }
 
 }
