@@ -1,0 +1,26 @@
+<nav class="py-2 bg-light border-bottom">
+    <div class="container d-flex flex-wrap">
+      <ul class="nav me-auto">
+        <li class="nav-item"><a routerLink="/home" routerLinkActive="active" 
+          class="nav-link link-dark px-2">Home</a></li>
+        <li class="nav-item"><a routerLink="/accounts" routerLinkActive="active"  class="nav-link link-dark px-2">Accounts</a></li>
+        <li class="nav-item"><a routerLink="/transactions" routerLinkActive="active"  class="nav-link link-dark px-2">Transactions</a></li>
+        <li class="nav-item"><a routerLink="/profile" routerLinkActive="active"  class="nav-link link-dark px-2">Profile</a></li>
+       
+      </ul>
+      <ul class="nav">
+        <li class="nav-item"><a routerLink="/auth/login" class="nav-link link-dark px-2">Login</a></li>
+        <li class="nav-item"><a routerLink="/auth/register" class="nav-link link-dark px-2">Sign up</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <header class="py-3 mb-4 border-bottom">
+    <div class="container d-flex flex-wrap justify-content-center">
+      <div *ngIf="showAlert" class="alert alert-warning alert-dismissible" role="alert">
+        <strong>Holy guacamole!</strong> You should check in on some of those fields below.
+        <button (click)="showAlert=!showAlert" type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      </div>
+     
+    </div>
+  </header>

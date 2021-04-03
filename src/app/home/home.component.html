@@ -1,0 +1,27 @@
+<div class="home">
+  <app-card
+  class="m-2"
+    [cardTitle]="'Welcome to JavaciBank'"
+    [cardSubtitle]="getTodayDate()"
+  >
+    <p>
+      Manage your accounts, send money, track your expenses and more... Please
+      login or register for an account to start using our award winning online
+      banking right away.
+    </p>
+  </app-card>
+
+  <app-card style="min-width: 400px;"
+  class="m-2"
+    [cardTitle]="'Currency Rates'"
+    [cardSubtitle]="getTodayDate()"
+  ></app-card>
+
+  <app-card
+  class="m-2"
+  style="min-width: 400px;"
+    [cardTitle]="'Crypto Rates'"
+    [cardSubtitle]="getTodayDate()"
+   
+  ></app-card>
+</div>
