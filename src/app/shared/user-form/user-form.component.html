@@ -1,0 +1,48 @@
+<div class="card auth-card">
+  <div class="card-header"> {{cardTitle}}</div>
+  <div class="card-body">
+    <h5 class="card-title">{{subTitle}}</h5>
+    <form class="row g-3" (ngSubmit)="handleSubmission()" [formGroup]="userForm" >
+      <div class="col-md-6">
+        <label  class="form-label">Citizen Number</label>
+        <input type="text" class="form-control" maxlength="11" [formControl]="citizenNumber"  >
+        <div
+          *ngIf="userForm.get('citizenNumber').errors?.required ||
+            userForm.get('citizenNumber').errors?.minlength "
+          class="alert alert-warning">
+          Citizen Number required and must be 11 chars.
+        </div>
+      </div>
+      <div class="col-md-6">
+        <label  class="form-label">Password</label>
+        <input type="password" class="form-control" [formControl]="password" placeholder="xxxxxx">
+      </div>
+      <div class="col-md-6">
+        <label  class="form-label">First Name</label>
+        <input type="text" class="form-control" [formControl]="firstName" >
+      </div>
+      <div class="col-md-6">
+        <label  class="form-label">Last Name</label>
+        <input type="text" class="form-control" [formControl]="lastName" >
+      </div>
+      <div class="col-md-6">
+        <label  class="form-label">Birth Date</label>
+        <input type="text" class="form-control" [formControl]="birthDate">
+      </div>
+      <div class="col-md-6">
+        <label  class="form-label">Phone Number</label>
+        <input type="text" class="form-control" [formControl]="phoneNumber" >
+      </div>
+      <div class="col-md-12">
+        <label  class="form-label">Email</label>
+        <input type="text" class="form-control" [formControl]="email">
+      </div>
+
+      <div class="col-12 m-2">
+        <button [disabled]="!userForm.valid" type="submit" class="btn btn-primary">{{btntext}}</button>
+        <a routerLink="{{link.url}}" *ngIf="mode=='register'"
+           class="m-2 link-secondary">{{link.text}}</a>
+      </div>
+    </form>
+  </div>
+</div>

@@ -1,0 +1,31 @@
+<nav class="py-2 bg-light border-bottom">
+  <div class="container d-flex flex-wrap">
+    <ul class="nav me-auto">
+      <li class="nav-item"><a routerLink="/home" routerLinkActive="active"
+                              class="nav-link link-dark px-2">Home</a></li>
+      <li class="nav-item"><a routerLink="/accounts" routerLinkActive="active"  class="nav-link link-dark px-2">Accounts</a></li>
+      <li class="nav-item"><a routerLink="/transactions" routerLinkActive="active"  class="nav-link link-dark px-2">Transactions</a></li>
+      <li class="nav-item"><a routerLink="/profile" routerLinkActive="active"  class="nav-link link-dark px-2">Profile</a></li>
+
+    </ul>
+    <ul class="nav" *ngIf="!($user|async) ; else : profile">
+      <li class="nav-item"><a routerLink="/auth/login" class="nav-link link-dark px-2">Login</a></li>
+      <li class="nav-item"><a routerLink="/auth/register" class="nav-link link-dark px-2">Sign up</a></li>
+    </ul>
+  </div>
+</nav>
+<header class="py-3 mb-4 border-bottom">
+  <div *ngIf="info" class="alert  alert-dismissible"
+       [ngClass]="{'alert-warning':info.type=='warning' , 'alert-success':info.type=='success' }"
+    >
+    <strong>{{info.type=='success' ? 'Success' :'Warning'}}:
+    </strong> {{info.message}}
+    <button type="button" class="btn btn-sm btn-close" data-bs-dismiss="alert" aria-label="Close">X</button>
+  </div>
+</header>
+
+<ng-template #profile>
+  <ul class="nav">
+    <li class="nav-item"><button (click)="logOut()" class="btn tbn-sm px-2">Log out</button></li>
+  </ul>
+</ng-template>
