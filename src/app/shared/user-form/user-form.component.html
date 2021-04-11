@@ -1,0 +1,50 @@
+<div class="card auth-card">
+    <div class="card-header"> {{cardTitle}}</div>
+    <div class="card-body">
+        <h5 class="card-title">{{subTitle}}</h5>
+        <form class="row g-3" (ngSubmit)="handleUserForm()" [formGroup]="userForm">
+            <div class="col-md-6">
+                <label  class="form-label">Citizen Number</label>
+                <input type="text" class="form-control" maxlength="11" [formControl]="citizenNumber" >
+            <div 
+            *ngIf="userForm.get('citizenNumber').errors?.required ||
+            userForm.get('citizenNumber').errors?.minlength "
+             class="alert alert-warning">
+                Citizen Number required and must be 11 chars.
+            </div>
+            
+            </div>
+            <div class="col-md-6">
+                <label  class="form-label">Password</label>
+                <input type="password" class="form-control"  [formControl]="password"  form placeholder="xxxxxx">
+            </div>
+            <div class="col-md-6">
+                <label  class="form-label">First Name</label>
+                <input type="text"  [formControl]="firstName"  class="form-control" >
+            </div>
+            <div class="col-md-6">
+                <label  class="form-label">Last Name</label>
+                <input type="text"  [formControl]="lastName"  class="form-control" >
+            </div>
+            <div class="col-md-6">
+                <label  class="form-label">Birth Date</label>
+                <input type="text"  [formControl]="birthDate"  class="form-control" >
+            </div>
+            <div class="col-md-6">
+                <label  class="form-label">Phone Number</label>
+                <input type="text"  [formControl]="phoneNumber"  class="form-control" >
+            </div>
+            <div class="col-md-12">
+                <label  class="form-label">Email</label>
+                <input type="text"  [formControl]="email"  class="form-control" >
+            </div>
+
+            <div class="col-12">
+                <button type="submit" [disabled]="!userForm.valid" class="btn btn-primary">{{mode}}</button>
+                <a *ngIf="mode=='register'" (click)="navigate(link.url)"  class="m-2 link-secondary">Already have an account? Sign in</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+

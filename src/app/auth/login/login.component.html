@@ -1,0 +1,45 @@
+<div class="auth-home">
+    <div class="card auth-card">
+        <div class="card-header"> Login</div>
+        <div class="card-body">
+            <h5 class="card-title">Please login to your account!</h5>
+            <form class="row g-3" (ngSubmit)="submitLoginForm()" #loginForm=ngForm>
+                <div class="col-md-6">
+                    <label class="form-label">Citizen Number</label>
+                    <input type="text" class="form-control" name="username"
+                           #userNameInput="ngModel"
+                           [(ngModel)]="loginModel.username"
+                           required
+                           minlength="11"
+                           maxlength="11"
+                    >
+                    <div [hidden]="userNameInput.valid || userNameInput.pristine"
+                         class="form-text alert alert-warning">
+                        This field is required. (Min 11 characters)
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <label class="form-label">Password</label>
+                    <input type="password" class="form-control" placeholder="xxxxxx"
+                           #passwordInput="ngModel"
+                           name="password"
+                           [(ngModel)]="loginModel.password"
+                           required
+                    >
+
+                    <div [hidden]="passwordInput.valid || passwordInput.pristine"
+                         class="form-text alert alert-warning">
+                        This field is required.
+                    </div>
+                </div>
+
+                <div class="col-12">
+                    <button type="submit" class="btn btn-primary">Login</button>
+                    <a routerLink="/auth/register" class="m-2 link-secondary">Do not have an account yet? Register
+                        here</a>
+
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

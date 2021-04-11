@@ -1,0 +1,40 @@
+
+<div class="card m-3">
+    <div class="card-header">
+        New Transaction
+    </div>
+    <div class="card-body">
+
+        <div class="alert alert-warning" *ngIf="errorMessage">
+            {{errorMessage}}
+        </div>
+        <h5 class="card-title">Select transaction type</h5>
+        <input type="radio" name="tType" value="transfer"
+               (ngModelChange)="transactionTypeChanged($event)" [(ngModel)]="transactionType"> Transfer
+        <input type="radio"  name="tType" value="withdraw"
+               (ngModelChange)="transactionTypeChanged($event)" [(ngModel)]="transactionType"> Withdraw
+        <input type="radio"  name="tType" value="deposit"
+               (ngModelChange)="transactionTypeChanged($event)" [(ngModel)]="transactionType"> Exchange
+
+        <hr />
+
+        <form [formGroup]="transactionForm" (ngSubmit)="handleForm()">
+            <div class="mb-3">
+                <label  class="form-label">Amount</label>
+                <input [formControl]="amount" type="number" class="form-control" >
+                <div  class="form-text">Amount of the transaction.</div>
+            </div>
+            <div class="mb-3">
+                <label  class="form-label">Account Id</label>
+                <input [formControl]="accountId" type="number" class="form-control" >
+                <div  class="form-text"> Account of the transaction.</div>
+            </div>
+            <div class="mb-3" *ngIf="transactionType=='transfer'">
+                <label  class="form-label">To account</label>
+                <input [formControl]="toAccountNumber" type="number" class="form-control" >
+                <div  class="form-text">Receiver Account of the transaction.</div>
+            </div>
+            <button [disabled]="!transactionForm.valid"  type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </div>
+</div>

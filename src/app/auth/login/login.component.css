@@ -1,0 +1,8 @@
+.auth-home{
+    display: flex;
+    justify-content: center;
+}
+
+.auth-card{
+    width: 500px;
+}

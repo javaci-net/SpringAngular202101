@@ -1,0 +1,29 @@
+
+
+<div class="card">
+  <div class="card-header" style="display: flex; justify-content: space-between;">
+    <span> My Accounts ({{accounts.length}}) </span>
+    <button (click)="toggleAccountForm()" class="btn btn-secondary btn-sm">
+        {{addAccount ? 'Close Form' :'Add Account'}}
+    </button>
+  </div>
+  <div class="card-body">
+   <app-account-form
+           *ngIf="addAccount" (accountCreated)="accountCreated($event)" >
+
+   </app-account-form>
+    <div class="row">
+        <div class="col-3 m-2" *ngFor="let account of accounts  ">
+            <app-card [cardTitle]="account.accountName" [cardSubtitle]="account.accountNumber" >
+                <strong>Balance : </strong> 
+                <button type="button" class="btn btn-light">{{account.balance|currency}}</button>
+                <hr />
+                <button (click)="closeAccount(account.id)"
+                        *ngIf="account.status=='ACTIVE'" class="btn btn-outline-danger card-link">Close</button>
+                <button *ngIf="account.status !=='ACTIVE'" class="btn btn-outline-info card-link">Activate</button> 
+            </app-card>
+        </div>
+
+    </div>
+  </div>
+</div>

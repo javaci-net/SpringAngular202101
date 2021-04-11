@@ -1,0 +1,33 @@
+
+<div class="card">
+    <div class="card-header">
+      Recent Transactions ({{($transactions|async).length}})
+    </div>
+    <div class="card-body">
+     <table class="table table-sm able-striped">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Receiver Account</th>
+                <th>Receiver Name</th>
+                <th>Description</th>
+                <th>Amount</th>
+                <th>Type</th>
+            </tr>
+        </thead>
+        <tbody>
+           <tr *ngFor="let item of ($transactions | async)" >
+               <td>{{item.id}}</td>
+               <td>{{item.toAccountId}}</td>
+               <td>{{item.toCustomerName}}</td>
+               <td>{{item.description}}</td>
+               <td>{{item.amount}}</td>
+               <td>{{item.amount | currency}}</td>
+           </tr>
+        </tbody>
+     </table>
+    </div>
+  </div>
+
+ 
+  

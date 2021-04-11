@@ -1,0 +1,31 @@
+<hr />
+<div style="display: flex; justify-content: center; ">
+    <form style="width: 400px;" [formGroup]="accountForm" (ngSubmit)="handleSubmission()">
+        <div class="mb-3">
+          <label class="form-label">Account name</label>
+          <input type="text" class="form-control" [formControl]="accountName" >
+          <div  class="form-text">Account name is required!</div>
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Description</label>
+          <input type="text" class="form-control" [formControl]="description" >
+        </div>
+    
+        <div class="mb-3">
+            <label class="form-label">Balance</label>
+            <input [formControl]="balance" type="number" min="0" max="99999" class="form-control" >
+          </div>
+        <div class="mb-3">
+            <select [formControl]="currency" class="form-select" aria-label="Default select example">
+                <option selected value="EURO">EURO</option>
+                <option value="TL">TL</option>
+                <option value="USD">Dollar</option>
+                <option value="GOLD">GOLD</option>
+              </select>
+          </div>
+    
+        <button [disabled]="!accountForm.valid" type="submit" class="btn btn-primary">Submit</button>
+      </form>
+</div>
+
+<hr />

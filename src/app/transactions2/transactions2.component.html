@@ -1,0 +1,42 @@
+
+<div class="card">
+    <div class="card-header" style="display: flex; justify-content: space-between" >
+        <span>
+            Recent Transactions ({{transactions.length}})
+        </span>
+
+        <button (click)="showTransactionForm()" class="btn btn-sm btn-info" >
+            {{showForm ? 'Close form' : 'New transaction'}}
+        </button>
+    </div>
+    <div class="card-body">
+        <div class="row" *ngIf="showForm">
+            <div class="col">
+                <app-transaction-form></app-transaction-form>
+            </div>
+        </div>
+        <table class="table table-sm able-striped">
+            <thead>
+            <tr>
+                <th>Id</th>
+                <th>Receiver Account</th>
+                <th>Receiver Name</th>
+                <th>Description</th>
+                <th>Amount</th>
+                <th>Type</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let t of transactions">
+                <td>{{t.id}}</td>
+                <td>{{t.toAccountId}}</td>
+                <td>{{t.toCustomerName}}</td>
+                <td>{{t.description}}</td>
+                <td>{{t.amount}}</td>
+                <td>{{t.type}}</td>
+
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
