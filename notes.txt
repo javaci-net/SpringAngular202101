@@ -1,0 +1,85 @@
+Dockerfile olusturulduktan sonra 
+
+docker build -t NAME . // dockerfile dan image yaratır
+
+docker image // imageleri listeler
+
+docker run -p7070:8080 NAME // image i çalıştırır
+
+docker ps // container ları listeler sadece calisanlar
+
+docker ps -a // container ları listeler hepsi
+
+docker container start ID // container ı çalıştırır
+
+docker container stop ID // container ı durdurur
+
+ 
+https://github.com/fireship-io/fireship.io
+https://github.com/fireship-io/docker-nodejs-basic-demo
+
+Kavramlar
+Docker
+	
+	
+	File konfigurasyon dosyası post forwarding volumes
+	Image file tarafından oluşturulan image hub dan da yüklenebilir
+	Container magin çalıştırılan hali
+	Engine (Client / Daemon (Server))
+	Compose diğer volumlarla (db gibi) bağlantı kurmak için tanım dosyası
+	
+pull push run
+
+https://labs.play-with-docker.com/
+
+
+BASIC
+------
+docker version
+docker -v
+docker info
+docker --help
+docker login
+
+IMAGES
+------
+docker images
+docker pull
+docker rmi
+docker tag 
+docker run
+
+Containers
+----------
+docker ps [-a]
+docker start
+docker stop
+
+-------
+System
+docker start
+docker system df
+docker system prune
+
+
+docker tag local-image:tagname new-repo:tagname
+docker tag hashcode repo_name
+docker push new-repo:tagname
+
+docker tag 0f05b9fca624 javacinet/javaci_docker_sample
+docker push javacinet/javaci_docker_sample
+
+docker volume create shared-stuff
+
+docker run --mount source=shared-stuff,target=/stuff
+
+Kubarneties 
+	deployemnt
+	development
+	monitoring
+	
+	
+	
+Paylaşılacaklar 
+	https://www.docker.com/products/docker-desktop (kurulum için)
+	https://hub.docker.com/ (hesap alınacak)
